@@ -15,6 +15,21 @@ export default {
     TheHeader,
     BaseBadge,
   },
+  computed: {
+    didAutoLogout() {
+      return this.$store.getters.didAutoLogout;
+    },
+  },
+  watch: {
+    didAutoLogout(curValue, oldVal) {
+      if (curValue && curValue !== oldVal) {
+        this.$router.replace("/coaches");
+      }
+    },
+  },
+  created() {
+    this.$store.dispatch("tryLogin");
+  },
 };
 </script>
 

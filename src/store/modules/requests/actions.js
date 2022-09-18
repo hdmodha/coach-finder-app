@@ -26,9 +26,15 @@ export default {
     context.commit("addRequest", newRequest);
   },
   async fetchRequests(context) {
+    console.log("Context: ", context);
     const coachId = context.rootGetters.userId;
+    console.log(coachId);
+    const token = context.rootGetters.token;
+    console.log("HERE");
+    console.log(token);
     const response = await fetch(
-      `https://vue-coach-finder-app-87299-default-rtdb.firebaseio.com/requests/${coachId}.json`
+      `https://vue-coach-finder-app-87299-default-rtdb.firebaseio.com/requests/${coachId}.json?auth=` +
+        token
     );
     const responseData = await response.json();
     if (!response.ok) {
