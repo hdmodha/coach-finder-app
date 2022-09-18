@@ -1,4 +1,5 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+// import { defineAsyncComponent } from "vue";
+import { createRouter, createWebHistory } from "vue-router";
 import CoachDetails from "./pages/coaches/CoachDetails.vue";
 import CoachesList from "./pages/coaches/CoachList.vue";
 import CoachRegistration from "./pages/coaches/CoachRegistration.vue";
@@ -8,8 +9,26 @@ import NotFound from "./pages/NotFound.vue";
 import UserAuth from "./pages/auth/UserAuth.vue";
 import store from "./store/index.js";
 
+// const CoachDetails = defineAsyncComponent(() =>
+//   import("./pages/coaches/CoachDetails.vue")
+// );
+// const CoachRegistration = defineAsyncComponent(() =>
+//   import("./pages/coaches/CoachRegistration.vue")
+// );
+// const ContactCoach = defineAsyncComponent(() =>
+//   import("./pages/requests/ContactCoach.vue")
+// );
+// const RequestReceived = defineAsyncComponent(() =>
+//   import("./pages/requests/RequestReceived.vue")
+// );
+// const UserAuth = defineAsyncComponent(() =>
+//   import("./pages/auth/UserAuth.vue")
+// );
+
+// It's not recommended to use Async components for routing.
+
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [
     { path: "/", redirect: "/coaches" },
     { path: "/coaches", component: CoachesList },
